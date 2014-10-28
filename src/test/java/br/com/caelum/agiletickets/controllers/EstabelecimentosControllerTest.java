@@ -22,17 +22,18 @@ public class EstabelecimentosControllerTest {
 	private @Mock DiretorioDeEstabelecimentos diretorio;
 	private @Spy Result result = new MockResult();
 	private @Spy Validator validator = new MockValidator();
-	
+
 	private EstabelecimentosController controller;
 
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
-		controller = new EstabelecimentosController(result, validator, diretorio);
+		controller = new EstabelecimentosController(result, validator,
+				diretorio);
 	}
 
-	@Test(expected=ValidationException.class)
+	@Test(expected = ValidationException.class)
 	public void naoDeveAdicionarEstabelecimentoSemNome() throws Exception {
 		Estabelecimento estabelecimento = new Estabelecimento();
 		estabelecimento.setEndereco("Um endereco");
@@ -42,7 +43,7 @@ public class EstabelecimentosControllerTest {
 		verifyNoMoreInteractions(diretorio);
 	}
 
-	@Test(expected=ValidationException.class)
+	@Test(expected = ValidationException.class)
 	public void naoDeveAdicionarEstabelecimentoSemEndereco() throws Exception {
 		Estabelecimento estabelecimento = new Estabelecimento();
 		estabelecimento.setNome("Um nome");
@@ -62,5 +63,5 @@ public class EstabelecimentosControllerTest {
 
 		verify(diretorio).adiciona(estabelecimento);
 	}
-	
+
 }

@@ -31,16 +31,19 @@ public class EstabelecimentoTest {
 	}
 
 	@Test
-	public void aoAdicionarUmEstabelecimentoDeveMostraLoNaTabela() throws Exception {
+	public void aoAdicionarUmEstabelecimentoDeveMostraLoNaTabela()
+			throws Exception {
 		estabelecimentos.abreListagem();
 
-		estabelecimentos.adicioneEstabelecimento("Caelum", "R. Vergueiro, 3185");
+		estabelecimentos
+				.adicioneEstabelecimento("Caelum", "R. Vergueiro, 3185");
 
 		estabelecimentos.ultimaLinhaDeveConter("Caelum", "R. Vergueiro, 3185");
 	}
 
 	@Test
-	public void aoAdicionarUmEstabelecimentoSemNomeDeveMostrarErro() throws Exception {
+	public void aoAdicionarUmEstabelecimentoSemNomeDeveMostrarErro()
+			throws Exception {
 		estabelecimentos.abreListagem();
 
 		estabelecimentos.adicioneEstabelecimento("", "R. Vergueiro, 3185");
@@ -49,7 +52,8 @@ public class EstabelecimentoTest {
 	}
 
 	@Test
-	public void aoAdicionarUmEstabelecimentoSemEnderecoDeveMostrarErro() throws Exception {
+	public void aoAdicionarUmEstabelecimentoSemEnderecoDeveMostrarErro()
+			throws Exception {
 		estabelecimentos.abreListagem();
 
 		estabelecimentos.adicioneEstabelecimento("Caelum", "");
@@ -58,7 +62,8 @@ public class EstabelecimentoTest {
 	}
 
 	@Test
-	public void mostraQueHaEstacionamentoQuandoCadastramosQueSim() throws Exception {
+	public void mostraQueHaEstacionamentoQuandoCadastramosQueSim()
+			throws Exception {
 		estabelecimentos.abreListagem();
 
 		estabelecimentos.adicioneEstabelecimentoComEstacionamento(true);
@@ -67,12 +72,13 @@ public class EstabelecimentoTest {
 	}
 
 	@Test
-	public void mostraQueNaoHaEstacionamentoQuandoCadastramosQueNao() throws Exception {
+	public void mostraQueNaoHaEstacionamentoQuandoCadastramosQueNao()
+			throws Exception {
 		estabelecimentos.abreListagem();
 
 		estabelecimentos.adicioneEstabelecimentoComEstacionamento(false);
 
 		estabelecimentos.ultimaLinhaDeveTerEstacionamento(false);
 	}
-	
+
 }

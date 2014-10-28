@@ -26,14 +26,17 @@ public class EstabelecimentosPage {
 	public void adicioneEstabelecimento(String nome, String endereco) {
 		WebElement form = form();
 		form.findElement(By.name("estabelecimento.nome")).sendKeys(nome);
-		form.findElement(By.name("estabelecimento.endereco")).sendKeys(endereco);
+		form.findElement(By.name("estabelecimento.endereco"))
+				.sendKeys(endereco);
 		form.submit();
 	}
 
 	public void ultimaLinhaDeveConter(String nome, String endereco) {
 		WebElement ultimaLinha = ultimaLinha();
-		assertThat(ultimaLinha.findElements(By.tagName("td")).get(1).getText(), is(nome));
-		assertThat(ultimaLinha.findElements(By.tagName("td")).get(2).getText(), is(endereco));
+		assertThat(ultimaLinha.findElements(By.tagName("td")).get(1).getText(),
+				is(nome));
+		assertThat(ultimaLinha.findElements(By.tagName("td")).get(2).getText(),
+				is(endereco));
 	}
 
 	public void deveMostrarErro(String erro) {
@@ -42,15 +45,18 @@ public class EstabelecimentosPage {
 		assertThat(erros.getText(), containsString(erro));
 	}
 
-	public void adicioneEstabelecimentoComEstacionamento(boolean temEstacionamento) {
+	public void adicioneEstabelecimentoComEstacionamento(
+			boolean temEstacionamento) {
 		form().findElement(By.name("estabelecimento.temEstacionamento"))
-			.sendKeys(temEstacionamento ? "Sim" : "Não");
+				.sendKeys(temEstacionamento ? "Sim" : "Não");
 		adicioneEstabelecimento("qualquer", "qualquer");
 	}
 
 	public void ultimaLinhaDeveTerEstacionamento(boolean estacionamento) {
-		WebElement temEstacionamento = ultimaLinha().findElements(By.tagName("td")).get(3);
-		assertThat(temEstacionamento.getText(), is(estacionamento ? "Sim" : "Não"));
+		WebElement temEstacionamento = ultimaLinha().findElements(
+				By.tagName("td")).get(3);
+		assertThat(temEstacionamento.getText(), is(estacionamento ? "Sim"
+				: "Não"));
 	}
 
 	private WebElement form() {

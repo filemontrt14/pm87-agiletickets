@@ -17,8 +17,8 @@ public class SessaoTestDataBuilder {
 	public static SessaoTestDataBuilder umaSessao() {
 		return new SessaoTestDataBuilder();
 	}
-	
-	public SessaoTestDataBuilder deUmEspetaculoDoTipo(TipoDeEspetaculo tipo){
+
+	public SessaoTestDataBuilder deUmEspetaculoDoTipo(TipoDeEspetaculo tipo) {
 		this.espetaculo = new Espetaculo();
 		this.espetaculo.setTipo(tipo);
 		return this;
