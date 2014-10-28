@@ -23,7 +23,8 @@ public class JPAEspetaculoDao implements Agenda {
 
 	@Override
 	public List<Espetaculo> espetaculos() {
-		return manager.createQuery("select e from Espetaculo e", Espetaculo.class).getResultList();
+		return manager.createQuery("select e from Espetaculo e",
+				Espetaculo.class).getResultList();
 	}
 
 	@Override
@@ -35,22 +36,23 @@ public class JPAEspetaculoDao implements Agenda {
 	public Espetaculo espetaculo(Long espetaculoId) {
 		return manager.find(Espetaculo.class, espetaculoId);
 	}
-	
+
 	@Override
 	public void agende(List<Sessao> sessoes) {
 		for (Sessao sessao : sessoes) {
 			manager.persist(sessao);
 		}
 	}
-	
+
 	@Override
 	public List<Sessao> proximasSessoes(int maximo) {
-		return manager.createQuery("select s from Sessao s where s.inicio > :hoje order by s.inicio", Sessao.class)
-					.setParameter("hoje", relogio.agora())
-					.setMaxResults(maximo)
-					.getResultList();
+		return manager
+				.createQuery(
+						"select s from Sessao s where s.inicio > :hoje order by s.inicio",
+						Sessao.class).setParameter("hoje", relogio.agora())
+				.setMaxResults(maximo).getResultList();
 	}
-	
+
 	@Override
 	public Sessao sessao(Long sessaoId) {
 		return manager.find(Sessao.class, sessaoId);

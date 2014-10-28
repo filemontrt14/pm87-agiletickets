@@ -20,5 +20,5 @@ public class IndexController {
 	public void index() {
 		result.include("sessoes", agenda.proximasSessoes(10));
 	}
-	
+
 }

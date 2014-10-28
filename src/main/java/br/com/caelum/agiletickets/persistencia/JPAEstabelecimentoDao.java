@@ -12,14 +12,15 @@ import br.com.caelum.vraptor.ioc.Component;
 public class JPAEstabelecimentoDao implements DiretorioDeEstabelecimentos {
 
 	private final EntityManager manager;
-	
+
 	public JPAEstabelecimentoDao(EntityManager manager) {
 		this.manager = manager;
 	}
 
 	@Override
 	public List<Estabelecimento> todos() {
-		return manager.createQuery("select e from Estabelecimento e", Estabelecimento.class).getResultList();
+		return manager.createQuery("select e from Estabelecimento e",
+				Estabelecimento.class).getResultList();
 	}
 
 	@Override

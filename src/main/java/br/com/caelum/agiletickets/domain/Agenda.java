@@ -12,11 +12,11 @@ public interface Agenda {
 	void cadastra(Espetaculo espetaculo);
 
 	Espetaculo espetaculo(Long espetaculoId);
-	
+
 	void agende(List<Sessao> sessoes);
-	
+
 	List<Sessao> proximasSessoes(int maximo);
-	
+
 	Sessao sessao(Long sessaoId);
 
 }
