@@ -3,10 +3,22 @@ package br.com.caelum.agiletickets.models;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class EspetaculoTest {
-
+	
+	private Espetaculo espetaculo;
+	
+	@Before
+	public void criaEspetaculo(){
+		this.espetaculo = new EspetaculoBuilder()
+							.chamado("Rei Leão")
+							.queEh("Musical da Broadway")
+							.doTipo(TipoDeEspetaculo.TEATRO)
+							.cria();
+	}
+	
 	@Test
 	public void deveInformarSeEhPossivelReservarAQuantidadeDeIngressosDentroDeQualquerDasSessoes() {
 		Espetaculo ivete = new Espetaculo();
